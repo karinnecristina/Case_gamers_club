@@ -177,3 +177,5 @@ pip-selfcheck.json
 .pre-commit-config.yaml
 databases/
 poetry.lock
+logs/
+datalake/
