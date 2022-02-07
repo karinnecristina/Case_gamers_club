@@ -175,7 +175,8 @@ pip-selfcheck.json
 ### Personal
 .flake8
 .pre-commit-config.yaml
+Apresentacao.odp
 databases/
 poetry.lock
-logs/
+logs/scheduler
 datalake/
