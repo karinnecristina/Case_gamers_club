@@ -178,5 +178,5 @@ pip-selfcheck.json
 Apresentacao.odp
 databases/
 poetry.lock
-logs/scheduler
+logs/
 datalake/
