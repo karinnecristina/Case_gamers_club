@@ -1,3 +1,11 @@
+<img alt="Author" src="https://img.shields.io/badge/author-KarinneCristina-blue.svg">
+<img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/karinnecristina/Case_gamers_club">
+<img alt="Python" src="https://img.shields.io/badge/python-3.9+-blue.svg">
+<img alt="Contributions Welcome" src="https://img.shields.io/badge/contributions-welcome-blue.svg">
+<img alt="Open Source" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103https://github.com/ellerbrock/open-source-badges/">
+
+
 # Case Técnico - [Gamers Club](https://gamersclub.gg/)
 
 <br></br>
