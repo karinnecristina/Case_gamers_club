@@ -4,42 +4,45 @@ from os.path import abspath
 from minio import Minio
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import date_format, current_timestamp
+from dotenv import load_dotenv
+
 
 # Folders and Subfolders
 BASE_DIR = os.path.dirname(os.path.abspath("__file__"))
 JARS_DIR = os.path.join(BASE_DIR, "jars")
 
+# reading environment variables
+load_dotenv()
 
 # Starting spark
 spark = (
     SparkSession.builder.appName("pipeline") 
     .config("spark.sql.warehouse.dir", abspath('spark-warehouse')) 
-    .config("fs.s3a.endpoint", "http://172.25.0.3:9000") 
-    .config("fs.s3a.access.key", "kay")
-    .config("fs.s3a.secret.key", "minio2014")
+    .config("fs.s3a.endpoint", os.environ.get("minio_endpoint")) 
+    .config("fs.s3a.access.key", os.environ.get("minio_user"))
+    .config("fs.s3a.secret.key", os.environ.get("minio_password"))
     .config("fs.s3a.impl","org.apache.hadoop.fs.s3a.S3AFileSystem") 
     .config("fs.s3a.path.style.access", "True")
     .config("spark.jars", os.path.join(JARS_DIR, "postgresql-42.3.1.jar"))
     .getOrCreate())
 
 
-
 # Configuration postgres:
 config_file = {
     "url": "jdbc:postgresql:data",
     "driver": "org.postgresql.Driver",
-    "user": "kay",
-    "password": "pg2014",
-    "host": "172.25.0.2",
-    "port": "5432",
+    "user": os.environ.get("pg_user"),
+    "password": os.environ.get("pg_password"),
+    "host": os.environ.get("pg_host"),
+    "port": os.environ.get("pg_port"),
 }
 
 
 # Configuration minio:
 client = Minio(
-        "172.25.0.3:9000",
-        access_key="kay",
-        secret_key="minio2014",
+        os.environ.get("minio_client"),
+        access_key=os.environ.get("minio_user"),
+        secret_key=os.environ.get("minio_password"),
         secure=False
     )
 
