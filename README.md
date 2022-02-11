@@ -52,6 +52,15 @@ $ poetry env use python3
 # Instale as dependências
 $ poetry install
 ```
+```bash
+# Configure o protocolo S3a para fazer a comunicação com o Minio
+Faça o download dos protocolos S3a no link:
+* https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar - arquivo jar
+* https://mvnrepository.com/artifact/com.amazonaws - arquivo java-sdk
+
+Mova os arquivos anterios para:
+$ /Users/<usuario>/spark/jars
+```
 #### Rodando a aplicação utilizando o airflow:
 
 ```bash
